@@ -1,9 +1,11 @@
-clickMe.addEventListener('click',function(){
-    popover.style.display = 'block'
+$(clickMe).on('click',function(){
+    $(popover).show()
+    setTimeout( ()=>{
+        $(document).one('click',function(){
+            $(popover).hide()
+        })
+    },0)
 })
-wrapper.addEventListener('click',function(e){
+$(wrapper).on('click',function(e){
     e.stopPropagation()
-})
-document.addEventListener('click',function(){
-    popover.style.display = 'none'
 })
